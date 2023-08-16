@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Online-jegykezelő</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{css/bootstrap.css}" rel="stylesheet">
+</head>
+
+<header>
+    <div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Online-jegykezelő</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                 <li class="nav-item">
+                    <a class="nav-link" href="index.html">Kezdőoldal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vasut.html">Vasút</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="jegyeim.html">Jegyeim</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link active" href="berleteim.html">Bérleteim</a>
+                </li>
+                </ul>
+            <form class="form-inline my-1 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Bejelentkezés</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="regisztracio.html">Regisztráció</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</header>
+
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading p-5">Bérleteid megtekintéséhez jelentkezz be</h1>
+        </div>
+    </section>
+    
+</main>
+
+<footer class="mt-auto mt-auto">
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src=js/vendor/jquery-slim.min.js><\/script>')</script>
+<script src="js/vendor/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vendor/holder.min.js"></script>
+<script th:src="@{/js/navigation.js}"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Online-jegykezelő</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{css/kezdo_oldal.css}" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Online-jegykezelő</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{index}">Kezdőoldal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/vasut}">Vasút</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="jegyeim_nav" onclick="toJegyeim()">Jegyeim</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="berleteim_nav" onclick="toOffBerletek()">Bérleteim</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="keses_nav" th:href="@{/keses}">Késesek</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="jegy_admin_nav" th:href="@{/jegy_admin}">Jegy admin</a>
+                </li>
+
+            </ul>
+
+            <form class="form-inline my-1 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="logoutGomb" onclick="logout()">Kijelentkezés</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}">Bejelentkezés</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/regisztracio}">Regisztráció</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="jumbotron text-center m-0">
+        <div class="container">
+
+            <h1 class="jumbotron-heading p-5">Üdvözlünk az oldalon!</h1>
+            <h2 class="jumbotron-heading p-5">Segítségünkkel innentől kezdve elfelejtheted a papír alapú jegyeid !</h2>
+        </div>
+    </section>
+
+</main>
+
+<div id="meme_div">
+    <picture>
+        <source media="(min-width: 865px)" srcset="/assets/haha1.png"	>
+        <img src="/assets/haha1.png"	 alt="meme1">
+
+    </picture>
+
+    <picture>
+        <source media="(min-width: 865px)" srcset="/assets/haha2.png"	>
+        <img src="/assets/haha2.png"	 alt="meme2">
+
+    </picture>
+</div>
+<footer class="mt-auto">
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src=js/vendor/jquery-slim.min.js><\/script>')</script>
+<script src="js/vendor/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vendor/holder.min.js"></script>
+<script th:src="@{/js/index.js}"></script>
+<script th:src="@{/js/navigation.js}"></script>
+</body>
+</html>

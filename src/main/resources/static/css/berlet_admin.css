@@ -1,0 +1,31 @@
+#berlet_list td{
+    border: 1px solid;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+table {
+
+    border: 1px solid;
+}
+
+#berlet_list td tr{
+
+    border: 1px solid;
+
+}
+
+#berlet_list2, td, tr{
+
+    border: 1px solid;
+    background-color: white;
+    padding: 10px 5px;
+}
+
+#vasarlas_table{
+    background-color: #0069d9;
+}
+
+.berlet_admin_label{
+    color: white;
+}

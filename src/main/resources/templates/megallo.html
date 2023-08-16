@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Spring Boot example</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <link th:href="@{css/bootstrap.css}" rel="stylesheet">
+  <link href="css/megallok.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">Online-jegykezelő</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/vasut}">Kezdőoldal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/vasut}">Vasút</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/jegyeim}">Jegyeim</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/offline_berlet}">Bérleteim</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/jegy_admin}">Jegy admin</a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-1 my-lg-0">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/login}">Bejelentkezés</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/regisztracio}">Regisztráció</a>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>
+
+<br><br><br><br>
+<p id="megalloAdd">
+<h2>Add</h2>
+
+<form th:action="@{/megallo/add}" method="post">
+  <p>&ensp;<input type="text" name="nev" id="nev"  required><label id="nevLabel" for="nev">&ensp;civ</label></p>
+  <p>&ensp;<input type="text" name="cim" id="cim"  required><label id="cimLabel" for="cim">&ensp;cim</label></p>
+  <p>&ensp;<input type="submit" value="Hozzáad"></p>
+</form>
+</p>
+
+
+
+
+</body>
+</html>

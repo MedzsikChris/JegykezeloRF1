@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Spring Boot example</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/offline_berlet.css}"/>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link th:href="@{css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+<header>
+	<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">Online-jegykezelő</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/}">Kezdőoldal</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/vasut}">Vasút</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="jegyeim_nav" onclick="toJegyeim()">Jegyeim</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" id="berleteim_nav" onclick="toOffBerletek()">Bérleteim</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="keses_nav" th:href="@{/keses}">Késesek</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="jegy_admin_nav" th:href="@{/jegy_admin}">Jegy admin</a>
+				</li>
+
+			</ul>
+
+			<form class="form-inline my-1 my-lg-0">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/login}">Bejelentkezés</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/regisztracio}">Regisztráció</a>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</header>
+<br><br><br>
+<table id = "berlet_list">
+	<tr>
+		<td>tulaj</td>
+		<td>azonosító</td>
+		<td>ervenyesseg_kezdet</td>
+		<td>ervenyesseg_veget</td>
+		<td>honnan</td>
+		<td>hova</td>
+		<td>tipus</td>
+		<td>kedvezmeny</td>
+
+	</tr>
+	<tr th:each="berletek : ${berletek}">
+		<td th:text="${berletek.tulaj}">
+		<td th:text="${berletek.berlet_id}">
+		<td th:text="${berletek.ervenyesseg_kezdet}"></td>
+		<td th:text="${berletek.ervenyesseg_veget}"></td>
+		<td th:text="${berletek.honnan}"></td>
+		<td th:text="${berletek.hova}"></td>
+		<td th:text="${berletek.tipus}"></td>
+		<td th:text="${berletek.kedvezmeny}"></td>
+	</tr>
+
+</table>
+
+<br>
+	<a href="https://www.youtube.com/watch?v=fkB3F4-NI8A" target="blank">
+		<img alt="image" src="/assets/image.png" width="100px" height="100px"/>
+	</a>
+
+<br>
+	<input id="cacheDeleteButton" type="button" onclick="deleteCache();" value="Delete Cache"></input>
+<br>
+	<p id="lastUpdateDate"></p>
+
+<script>
+	document.querySelector('#lastUpdateDate').innerHTML = "Last cache update: \n" + Date();
+</script>
+</body>
+<script type="text/javascript" th:src="@{/js/offline_berlet.js}"></script>
+<script th:src="@{/js/navigation.js}"></script>
+</html>

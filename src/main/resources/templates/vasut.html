@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Online-jegykezelő</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+<header>
+	<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">Online-jegykezelő</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/}">Kezdőoldal</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" th:href="@{/vasut}">Vasút</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="jegyeim_nav" onclick="toJegyeim()">Jegyeim</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="berleteim_nav" onclick="toOffBerletek()">Bérleteim</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="keses_nav" th:href="@{/keses}">Késesek</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="jegy_admin_nav" th:href="@{/jegy_admin}">Jegy admin</a>
+				</li>
+
+			</ul>
+
+			<form class="form-inline my-1 my-lg-0">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/login}">Bejelentkezés</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/regisztracio}">Regisztráció</a>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</header>
+
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading p-5">Vasútunk leirása</h1>
+        </div>
+    </section>
+	<div class="album py-5 bg-light">
+        <div class="container">
+			
+			<li>A MÁV Zrt. személyszállítással foglalkozó leányvállalata 2007. július 1-jétől működik önálló társaságként.</li>
+			<li>Az országban 6 területi igazgatóság működik, amelyek Budapesten, Debrecenben, Miskolcon, Pécsen, Szegeden és Szombathelyen találhatók.</li>
+			<li>Állomások száma: 639 db</li>
+			<li>Megállóhelyek száma: 762 db</li>
+			<li>Közlekedtetett vonatok száma 2020-ban:</li>
+				<ul>
+				<li>Személyszállító vonat: 1 037 641 db</li>
+				<li>Tehervonat: 138 383 db</li>
+				</ul>
+			<picture>
+				<source media="(min-width: 465px)" srcset="/assets/vasut.jpg"	>
+				<img src="/assets/vasut.jpg"	 alt="vasut">
+				</picture>
+			
+		
+		<h1>MÁV-START Zrt. forgalomban lévő sorozati</h1>
+		<ul>
+		<li>BDVmot Hernyó</li>
+		<ul>
+		<li>A MÁV-START 414 sorozat (korábban MÁV 68-05 sorozat közismert nevén: BDVmot) a MÁV-START egyik villamos elővárosi motorvonata. Beceneve: Hernyó.</li>
+		<li>Darabszám	20 db</li>
+		<li>Legnagyobb sebesség: 120 km/h</li>
+		<picture>
+				<source media="(min-width: 865px)" srcset="/assets/bdv.jpg"	>
+				<img src="/assets/bdv.jpg"	 alt="bdv">
+		</picture>
+		
+		</ul>
+		<li>BVmot Samu</li>
+		<ul>
+		<li>A MÁV-START 434 sorozat, (korábban: MÁV BVmot) egy belföldi nagyvárosok közötti InterCity közlekedésre szánt zárt villamos motorvonat.</li>
+		<li>Darabszám	3 db</li>
+		<li>Legnagyobb sebesség: 160 km/h</li>
+		<picture>
+				<source media="(min-width: 865px)" srcset="/assets/bv.jpg"	>
+				<img src="/assets/bv.jpg"	 alt="bv">
+		</picture>
+		</ul>
+		<li>Stadler FLIRT</li>
+		<ul>
+		<li>Hivatalos magyar (MÁV-) definíció szerint a FLIRT nem motorvonatnak, hanem csuklós motorkocsinak, azaz egyetlen önálló járműnek tekintendő..</li>
+		<li>Darabszám	123 db</li>
+		<li>Legnagyobb sebesség: 160 km/h</li>
+		<picture>
+				<source media="(min-width: 865px)" srcset="/assets/flirt.jpg"	>
+				<img src="/assets/flirt.jpg"	 alt="flirt">
+		</picture>
+		</ul>
+		<li>Bombardier Talent</li>
+		<ul>
+		<li> Bombardier Talent a Bombardier Transportation által gyártott többrészes csuklós motorkocsi illetve motorvonat,</li>
+		<li>Darabszám	10 db</li>
+		<li>Legnagyobb sebesség: 140 km/h</li>
+		<picture>
+				<source media="(min-width: 865px)" srcset="/assets/talent.jpg"	>
+				<img src="/assets/talent.jpg"	 alt="talent">
+
+		</picture>
+		</ul>
+		
+		</ul>
+		
+		
+	</div>
+	</div>
+
+</main>
+<footer class="mt-auto">
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src=js/vendor/jquery-slim.min.js><\/script>')</script>
+<script src="js/vendor/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vendor/holder.min.js"></script>
+<script th:src="@{/js/navigation.js}"></script>
+</body>
+</html>

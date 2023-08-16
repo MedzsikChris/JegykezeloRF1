@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Online-jegykezelő</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/jegy_admin.css}"/>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Online-jegykezelő</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Kezdőoldal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/vasut}">Vasút</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" id="jegyeim_nav" onclick="toJegyeim()">Jegyeim</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="berleteim_nav" onclick="toOffBerletek()">Bérleteim</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="keses_nav" th:href="@{/keses}">Késesek</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="jegy_admin_nav" th:href="@{/jegy_admin}">Jegy admin</a>
+                </li>
+
+            </ul>
+
+            <form class="form-inline my-1 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}">Bejelentkezés</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/regisztracio}">Regisztráció</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</header>
+
+<br><br><br>
+<main role="main">
+
+    <section class="jumbotron text-center m-0">
+        <div class="container">
+            <h1 class="jumbotron-heading p-5">Itt láthatod a vásárolt jegyeid</h1>
+        </div>
+    </section>
+</main>
+<table id = "jegy_list2">
+
+    <tr>
+        <td>kezdo_megallo</td>
+        <td>vegallomas</td>
+        <td>kocsiosztaly</td>
+        <td>oda_vissza</td>
+        <td>ar</td>
+        <td>ervenyes_ettol</td>
+        <td>ervenyes_eddig</td>
+        <td>kedvezmeny</td>
+    </tr>
+
+    <tr th:each="jegy : ${jegy}">
+        <td th:text="${jegy.kezdo_megallo}"></td>
+        <td th:text="${jegy.vegallomas}"></td>
+        <td th:text="${jegy.kocsiosztaly}"></td>
+        <td th:text="${jegy.oda_vissza}"></td>
+        <td th:text="${jegy.ar}"></td>
+        <td th:text="${jegy.ervenyes_ettol}"></td>
+        <td th:text="${jegy.ervenyes_eddig}"></td>
+        <td th:text="${jegy.kedvezmeny}"></td>
+    </tr>
+</table>
+<br>
+<table id="vasarlas_table">
+    <tr><th><h2>Vásárlás</h2></th></tr>
+    <tr>
+
+        <td>
+            <form th:action="@{/jegyeim/add}" method="post">
+                <input type="text" name="civ" id="civ" required hidden><label for="civ" hidden></label>
+                <p>&ensp;<select id="kezdo_megallo" name="kezdo_megallo">
+                    <option th:each="megallo : ${megallo}" th:value="${megallo.nev}" th:text="${megallo.nev}"></option>
+                </select> <label for="kezdo_megallo">&ensp;kezdo_megallo</label>
+                </p>
+                <p>&ensp;<select id="vegallomas" name="vegallomas">
+                    <option th:each="megallo : ${megallo}" th:value="${megallo.nev}" th:text="${megallo.nev}"></option>
+                </select> <label for="vegallomas">&ensp;vegallomas</label>
+                </p>
+                <p>&ensp;<input type="number" name="kocsiosztaly" id="kocsiosztaly" value="2" min="1" max="2" required> <label for="kocsiosztaly">&ensp;kocsiosztaly</label></p>
+                <p>&ensp;<select name="oda_vissza" id="oda_vissza">
+                    <option value = "igen">igen</option>
+                    <option value = "nem" selected>nem</option>
+                </select><label for="oda_vissza">&ensp;oda vissza?</label></p>
+                <p>&ensp;<select name="kedvezmeny" id="kedvezmeny">
+                    <option value = "diak">Diák</option>
+                    <option value = "nyugdíjjas">Nyugdíjjas</option>
+                    <option value = "vasutas">Vasútas</option>
+                    <option value = "nincs" selected>Nincs</option>
+                </select><label for="kedvezmeny">&ensp;Kedvezmény</label></p>
+                <input type="number" id="kamu_ar" name="kamu_ar" value=0 hidden>
+                <p>&ensp;<input id="jegy_vasarlo_gomb" type="submit" value="Vásárlás"></p>
+            </form>
+            <p>&ensp;
+        </td>
+        <td>
+            <span>Ár:</span><input type="number" id="ar" name="ar" value=1000 disabled></input><span>Ft</span>
+        </td>
+    </tr>
+</table>
+
+
+<p id="loginButton" hidden></p>
+<footer class="mastfoot mt-auto mt-auto">
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src=js/vendor/jquery-slim.min.js><\/script>')</script>
+<script th:src="@{/js/vendor/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/vendor/holder.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jegyeim.js}"></script>
+<script th:src="@{/js/navigation.js}"></script>
+</body>
+
+</html>
